@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Washing Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shoe Washing Booking System</h1>
+        <form id="bookingForm">
+            <div class="step" id="step1">
+                <h2>Select Service Type</h2>
+                <select id="serviceType" required>
+                    <option value="">Select a service</option>
+                    <option value="basic">Basic Wash</option>
+                    <option value="deep">Deep Cleaning</option>
+                    <option value="pickup">Pick-Up Service</option>
+                    <option value="housecall">House Calls</option>
+                </select>
+                <button type="button" onclick="nextStep(1)">Next</button>
+            </div>
+
+            <div class="step" id="step2" style="display:none;">
+                <h2>Enter Details</h2>
+                <input type="text" placeholder="Name" id="name" required>
+                <input type="text" placeholder="Phone Number" id="phone" required>
+                <input type="email" placeholder="Email" id="email" required>
+                <input type="text" placeholder="Address" id="address">
+                <button type="button" onclick="nextStep(2)">Next</button>
+            </div>
+
+            <div class="step" id="step3" style="display:none;">
+                <h2>Specify Shoes</h2>
+                <input type="number" placeholder="Number of Pairs" id="pairs" required>
+                <input type="text" placeholder="Shoe Types" id="shoeTypes">
+                <textarea placeholder="Special Requests" id="specialRequests"></textarea>
+                <button type="button" onclick="nextStep(3)">Next</button>
+            </div>
+
+            <div class="step" id="step4" style="display:none;">
+                <h2>Choose Date & Time</h2>
+                <input type="datetime-local" id="dateTime" required>
+                <button type="button" onclick="nextStep(4)">Next</button>
+            </div>
+
+            <div class="step" id="step5" style="display:none;">
+                <h2>Payment Options</h2>
+                <select id="paymentOption" required>
+                    <option value="">Select payment option</option>
+                    <option value="upfront">Upfront Payment</option>
+                    <option value="delivery">Pay on Delivery</option>
+                </select>
+                <button type="button" onclick="nextStep(5)">Next</button>
+            </div>
+
+            <div class="step" id="step6" style="display:none;">
+                <h2>Confirmation</h2>
+                <p id="confirmationMessage"></p>
+                <button type="button" onclick="submitBooking()">Confirm Booking</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
